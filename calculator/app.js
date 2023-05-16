@@ -19,6 +19,17 @@ function del(){
     display(stringExpression);
 }
 
+function signInt(){
+    if(stringExpression.includes("-")){
+        stringExpression = stringExpression.slice(1,lengthOfExpression);
+        display(stringExpression);
+    }
+    else{
+        stringExpression = "-"+stringExpression;
+        display(stringExpression);
+    }
+}
+
 function operand(n){
     stringExpression += n.toString();
     display(stringExpression);
