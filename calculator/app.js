@@ -1,24 +1,31 @@
-let isOperatorChosen = false;
-let firstOperand=0;
-let secondOperand=0;
-let grandExpression;
 const screen = document.getElementById("calculations");
+let stringExpression="";
+let lengthOfExpression;
 
-function operatorChosen(value){
-    isOperatorChosen = value;
+
+function displayAnswer(){
+    screen.innerHTML = "";
+    screen.innerHTML = eval(stringExpression);
+}
+
+function clearDisplay(){
+    screen.innerHTML = "";
+    stringExpression = "";
+}
+
+function del(){
+    lengthOfExpression = stringExpression.length;
+    stringExpression = stringExpression.slice(0,lengthOfExpression-1);
+    display(stringExpression);
 }
 
 function operand(n){
-    console.log("clicked");
-    if (isOperatorChosen == false){
-        firstOperand = (firstOperand*10) + n;
-    }else{
-        secondOperand = (secondOperand*10) + n;
-    }
-    display(firstOperand,secondOperand);
+    stringExpression += n.toString();
+    display(stringExpression);
 }
 
-function display(firstOperand,secondOperand){
-    grandExpression = firstOperand.toString() + secondOperand.toString();
-    screen.innerHTML = grandExpression;
+function display(stringExpression){
+    screen.innerHTML = stringExpression;
 }
+
+

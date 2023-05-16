@@ -55,6 +55,7 @@ body{
     background-color: rgb(175, 175, 223);
     font-size: 24px;
     border: var(--border);
+    cursor: pointer;
 
     border-radius: var(--border-radius-primary);
     
