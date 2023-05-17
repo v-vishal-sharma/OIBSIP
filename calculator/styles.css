@@ -46,17 +46,15 @@ body{
 }
 .buttons{
     margin-top: 2rem;
-}
-.flex-container{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap:1rem;
-
+    
     height: inherit;
     width: 100%;
     margin: auto;
+}
+.flex-container{
+    display: flex;
+    gap:1.2rem;
+    margin-top: 1rem;
 }
 .flex-item{
     height:80px;
@@ -93,7 +91,7 @@ body{
         font-size: 18px;
     }
 }
-@media(max-width:768px){
+@media screen and (min-width:1200px){
     .calculator-body{
         height: 50vh;
         width: 60vw;
