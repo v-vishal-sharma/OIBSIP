@@ -1,15 +1,17 @@
 const screen = document.getElementById("calculations");
+const resultScreen = document.getElementById("result");
 let stringExpression="";
 let lengthOfExpression;
 
 
 function displayAnswer(){
-    screen.innerHTML = "";
-    screen.innerHTML = eval(stringExpression);
+    result.innerHTML = "";
+    result.innerHTML = eval(stringExpression);
 }
 
 function clearDisplay(){
     screen.innerHTML = "";
+    result.innerHTML = "";
     stringExpression = "";
 }
 
