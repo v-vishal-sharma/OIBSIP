@@ -21,22 +21,60 @@
 .contentContainer{
     height: 43rem;
     width: 60rem;
-    margin:auto;
+    padding-top: 1rem;
+    margin: auto;
     border-radius: 12px;
     background-color: rgb(236, 234, 234);
 }
 .list {
-    /* background-color: red; */
-    height: 4vh;
-    width: 20vw;
-    margin: auto;
-    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    padding-left: 4rem;
+    width: 57.4rem;
+    height: 4rem;
 }
 .inputForm {
-    height: 4vh;
-    width: 20vw;
-    margin: auto;
+    height: 2rem;
+    width: 25rem;
     padding-left: 1rem;
+    background-color: rgb(207, 207, 207);
+    border-radius: 0;
+    font-size: 18px;
+}
+.inputForm:focus{
+    border-bottom: 2px solid black;
+    outline: none;
+}
+.plan-btn{
+    font-size: 16px;
+    height: 2.1rem;
+    width: 8rem;
+    border-radius: 4px;
+    border: 1px solid black;
+}
+.plan-btn:hover{
+    background-color: black;
+    color: white;
+    outline: none;
+    border:none;
+}
+.tasksDivider{
+    border: 1px solid black;
+    width: 50rem;
+    margin: auto;
+}
+.tasks{
+    height: 36rem;
+    width: 50rem;
+    margin: auto;
+    margin-top: 2rem;
+    background-color: grey;
+}
+.myList{
+    list-style: none;
 }
 /* .plan-btn {
     font-size: 1rem;
@@ -61,22 +99,6 @@
     box-shadow: -1px 2px 5px rgba(0,0,0,0.2);
     transition: .04s
 } */
-.tasks{
-    height: 53vh;
-    width: 35vw;
-    margin: auto;
-    background-color: grey;
-    border-radius: 2%;
-    /* overflow: auto; */
-}
-.myList{
-    margin-left: -1 !important;
-    padding: -1;
-    list-style: none;
-}
-  /* *{
-    box-sizing: border-box;
-  } */
 
 body {
     background-color: rgb(161, 161, 161);
