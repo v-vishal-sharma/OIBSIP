@@ -1,6 +1,9 @@
 *{
     margin:0;
 }
+body {
+    background-color: rgb(161, 161, 161);
+}
 .title{
     text-align: center;
     margin: 1rem auto;
@@ -43,6 +46,7 @@
     background-color: rgb(207, 207, 207);
     border-radius: 0;
     font-size: 18px;
+    border:none;
 }
 .inputForm:focus{
     border-bottom: 2px solid black;
@@ -71,100 +75,44 @@
     width: 50rem;
     margin: auto;
     margin-top: 2rem;
-    background-color: grey;
 }
 .myList{
     list-style: none;
+    width: 50rem;
+    padding: 0;
 }
-/* .plan-btn {
-    font-size: 1rem;
-    border:2px solid white;
-    border-radius:99px;
-    width:10rem;
-    height:3rem;
-    padding:-1.3rem;
-    margin: 4% 10% 4% 1%;
-    transition: .4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    color: black;
-    transform: translateX(5%);
+.list-item{
+    display:flex;
+    justify-content: space-between;
+    font-size: 24px;
+    width: 50rem;
+    margin:0;
+    cursor:poiner;
 }
-.plan-btn:hover {
-    width:15rem;
-    background-color: white;
-    box-shadow: -1px 5px 5px rgba(0,0,0,0.2);
-    color: blue;
-    transition:.2s;
+.list-item::before{
+    content: '\2713';
+    color: rgb(236, 234, 234);
 }
-.plan-btn:active {
-    box-shadow: -1px 2px 5px rgba(0,0,0,0.2);
-    transition: .04s
-} */
-
-body {
-    background-color: rgb(161, 161, 161);
+.close-btn{
+    padding: 0.4rem 0.1rem;
+    border-radius: 0;
+    font-size: 16px;
+    color: red;
 }
-input {
-    /* float: left;
-    margin-top: -1.5rem; */
-  
-    /* margin-top: -1.25rem;
-    margin-left: 1rem; */
-    border: none;
-    border-style: none;
-    border-radius: 4px;
-    width: 19rem;
-    padding: -1.3rem;
-    float: left;
-    font-size: 13px;
-}
-ul,li{
+.close-btn:hover{
+    /* background-color: red; */
+    /* color: white; */
+    text-decoration: underline;
     cursor: pointer;
-    font-size: 17px;
-    padding-left: 0rem;
-    padding-right: 0rem;
-    text-align: left;
-    transition: -1.2s;
-    border-radius: 4px;
-    margin-left: 1rem;
-  
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-li {
-    background:#554;
-}
-li:nth-child(odd){
-    background: white;
-}
-li:hover{
-    background: black;
-    color: white;
 }
 li.checked{
     text-decoration: line-through;
     color: #A1A0A0;
     background: #DCDCDC;
 }
-/* to add a check mark */
 li.checked::before {
     content: '\2713';
     color:black;    
-    position: absolute;
-    height: 14px;
-    width: 6px;
-    left: 3rem;
     transform: rotate(4deg);
-}
-.close-btn{
-    position: absolute;
-    padding: .03rem 0.3rem;
-    left: 43rem;
-    border-radius: 4px;
-}
-.close-btn:hover{
-    background-color: red;
-    color: white;
 }
   

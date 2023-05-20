@@ -2,7 +2,7 @@ let myToDoList = document.getElementsByTagName("li");
 
 for (let i=0 ; i<myToDoList.length; i++) {
   let span = document.createElement("span");
-  let txt = document.createTextNode("\u00D7");
+  let txt = document.createTextNode("Delete");
   span.className = "close-btn";
   span.appendChild(txt);
   myToDoList[i].appendChild(span);
@@ -35,6 +35,8 @@ function newElement() {
   let t = document.createTextNode(inputValue);
 
   let id = new Date().getTime();
+  let itemClass = "list-item";
+  li.className = itemClass;
   li.id = id;
   li.appendChild(t);
 
@@ -46,7 +48,7 @@ function newElement() {
   document.getElementById("Input").value = "";
 
   let span = document.createElement("SPAN");
-  let txt = document.createTextNode("\u00D7");
+  let txt = document.createTextNode("Delete");
   span.className = "close-btn";
   span.appendChild(txt);
   li.appendChild(span);
