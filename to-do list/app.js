@@ -4,11 +4,7 @@ const planBtn = document.getElementById("plan-btn");
 let editFlag = false;
 
 
-planBtn.addEventListener("click",function(){
-  if(planBtn.innerHTML == "Plan For Today"){
-    newElement();
-  }
-})
+
 
 let newElement = function(){
   if(editFlag==false){
@@ -105,8 +101,11 @@ function isCompleted(elementId){
 
 // enter key adds task
 const enterAddsTask = document.getElementById("Input");
-enterAddsTask.addEventListener("keydown", function(e){
+enterAddsTask.addEventListener("keydown", addItemToList);
+planBtn.addEventListener("click",addItemToList);
+
+function addItemToList(e){
   if (e.key == "Enter" && planBtn.innerHTML == 'Plan For Today'){
     newElement();
   }
-})
+}
