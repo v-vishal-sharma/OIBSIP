@@ -80,21 +80,4 @@ body{
     color:black;
     background: white;
 }
-@media screen and (max-width: 1200px){
-    .buttons{
-        margin-top: 2rem;
-    }
-    .flex-item{
-        height: 50px;
-        width: 50px;
-
-        font-size: 18px;
-    }
-}
-@media screen and (min-width:1200px){
-    .calculator-body{
-        height: 50vh;
-        width: 60vw;
-    }
-}
 
