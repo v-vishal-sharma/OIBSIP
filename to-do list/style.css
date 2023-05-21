@@ -1,8 +1,13 @@
+:root{
+    --color-primary: rgb(170, 170, 170);
+}
+
 *{
     margin:0;
 }
 body {
-    background-color: rgb(161, 161, 161);
+    background-color: #0c3100;
+background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
 }
 .title{
     text-align: center;
@@ -11,13 +16,14 @@ body {
     width: 60rem;
     padding-top:3rem;
 
-    background-color: rgb(236, 234, 234);
+    background-color: var(--color-primary);
+    color: rgb(32, 32, 32);
     box-shadow: black;
     border-radius: 12px;
 }
 .divider{
     width: 60rem;
-    border: 1px solid black;
+    border: 1px solid rgb(216, 216, 216);
     margin: auto;
     margin-bottom: 1rem;
 }
@@ -27,7 +33,7 @@ body {
     padding-top: 1rem;
     margin: auto;
     border-radius: 12px;
-    background-color: rgb(236, 234, 234);
+    background-color: var(--color-primary);
 }
 .list {
     display: flex;
@@ -87,32 +93,30 @@ body {
     font-size: 24px;
     width: 50rem;
     margin:0;
-    cursor:poiner;
+    cursor:pointer;
 }
-.list-item::before{
-    content: '\2713';
-    color: rgb(236, 234, 234);
+input[type="checkbox"]{
+    height:15px;
+    width: 15px;
 }
-.close-btn{
+.edit-btn,.delete-btn{
     padding: 0.4rem 0.1rem;
     border-radius: 0;
     font-size: 16px;
     color: red;
+    background-color: var(--color-primary);
+    border:none;
 }
-.close-btn:hover{
+.edit-btn{
+    color: green;
+    margin-right: 10px;
+}
+.edit-btn:hover,.delete-btn:hover{
     /* background-color: red; */
     /* color: white; */
     text-decoration: underline;
     cursor: pointer;
 }
-li.checked{
+.checked{
     text-decoration: line-through;
-    color: #A1A0A0;
-    background: #DCDCDC;
 }
-li.checked::before {
-    content: '\2713';
-    color:black;    
-    transform: rotate(4deg);
-}
-  

@@ -1,77 +1,112 @@
-let myToDoList = document.getElementsByTagName("li");
+const parentDiv = document.getElementById("myList");
+const inputArea = document.getElementById("Input");
+const planBtn = document.getElementById("plan-btn");
+let editFlag = false;
 
-for (let i=0 ; i<myToDoList.length; i++) {
-  let span = document.createElement("span");
-  let txt = document.createTextNode("Delete");
-  span.className = "close-btn";
-  span.appendChild(txt);
-  myToDoList[i].appendChild(span);
-}
 
-// close button functionality
-
-let close = document.getElementsByClassName("close-btn");
-for (let i=0 ; i<close.length; i++){
-  close[i].onclick = function(){
-    let div = this.parentElement;
-    div.style.display = "none";
-  }
-}
-
-// adding a checked sign
-
-let list = document.querySelector('ul');
-
-list.addEventListener('click', function(ev){
-  if (ev.target.tagName === 'LI'){
-    ev.target.classList.toggle('checked');
-  }
-}, false);
-
-// creating new list item
-function newElement() {
-  let li = document.createElement("li");
-  let inputValue = document.getElementById("Input").value;
-  let t = document.createTextNode(inputValue);
-
-  let id = new Date().getTime();
-  let itemClass = "list-item";
-  li.className = itemClass;
-  li.id = id;
-  li.appendChild(t);
-
-  if (inputValue === "") {
-    alert("Code: null");
-  }else{
-    document.getElementById("myUl").appendChild(li);
-  }
-  document.getElementById("Input").value = "";
-
-  let span = document.createElement("SPAN");
-  let txt = document.createTextNode("Delete");
-  span.className = "close-btn";
-  span.appendChild(txt);
-  li.appendChild(span);
-
-  //adding close button functionality
-  let div;
-  for (i = 0; i<close.length; i++) {
-    close[i].onclick = function(){
-      div = this.parentElement;
-      id = this.parentElement.id;
-      div.style.display = "none";
-      document.querySelector("ul").removeChild(div);
-      
-    }
-  }
-
-}
-
-//"Enter" adds the item to the list
-const enterForm = document.querySelector(".inputForm");
-enterForm.addEventListener("keydown" , function(e) {
-  if(e.key == "Enter"){
+planBtn.addEventListener("click",function(){
+  if(planBtn.innerHTML == "Plan For Today"){
     newElement();
-  };
+  }
+})
 
-});
+let newElement = function(){
+  if(editFlag==false){
+  let itemContainer = document.createElement("div");
+
+  // creating checkbox
+  let checkboxInput = document.createElement("input");
+  let checkClass = "checkbox-btn";
+  checkboxInput.type = "checkbox";
+  checkboxInput.className = checkClass;
+  checkboxInput.onclick = function() {isCompleted(this.parentElement.id)};
+
+  let buttonContainer = document.createElement("div");
+  
+  // creating edit button
+  let editBtn = document.createElement("button");
+  let editBtnText = document.createTextNode("Edit");
+  editBtn.className = "edit-btn";
+  editBtn.appendChild(editBtnText);
+  editBtn.onclick = function() {editItem(this.parentElement.parentElement.id);};
+
+  // creating delete button
+  let deleteBtn = document.createElement("button");
+  let deleteBtnText = document.createTextNode("Delete");
+  deleteBtn.className = "delete-btn";
+  deleteBtn.appendChild(deleteBtnText);
+  deleteBtn.onclick = function(){deleteItem(this.parentElement.parentElement.id);};
+
+  const todoItem = document.getElementById("Input").value;  
+  let todoText = document.createTextNode(todoItem);
+  
+  // creating unique id for every element
+  let itemId = new Date().getTime();
+
+  itemContainer.className = "list-item";
+  itemContainer.id = itemId;
+  
+  //appending items
+  buttonContainer.appendChild(editBtn);
+  buttonContainer.appendChild(deleteBtn);
+
+  itemContainer.appendChild(checkboxInput);
+  itemContainer.appendChild(todoText);
+  itemContainer.appendChild(buttonContainer);
+
+  parentDiv.appendChild(itemContainer);
+
+  // making the input form blank
+  inputArea.value = "";
+  }
+}
+
+// function to edit
+function editItem(elementId){
+
+  const itemToEdit = document.getElementById(elementId).childNodes;
+  console.log(itemToEdit[1].data);
+
+  editFlag = true;
+
+  inputArea.value = itemToEdit[1].data;
+  planBtn.innerHTML = "Edit";
+
+  planBtn.addEventListener("click", function(){
+    if(planBtn.innerHTML == "Edit" && editFlag){
+      itemToEdit[1].data = inputArea.value; 
+      editFlag = false;
+      inputArea.value = "";
+      planBtn.innerHTML = "Plan For Today";     
+    }
+  })
+
+}
+
+// function to delete
+function deleteItem(elementId){
+  const itemToDelete = document.getElementById(elementId);
+  itemToDelete.style.display = "none";
+  parentDiv.removeChild(itemToDelete);
+}
+
+// function to add line through
+function isCompleted(elementId){
+  const itemToCheck = document.getElementById(elementId);
+  const checkboxValue = document.getElementById(elementId).childNodes[0].checked;
+
+
+  if(checkboxValue){
+    itemToCheck.classList.add("checked");
+  }else{
+    itemToCheck.classList.remove("checked");
+  }
+}
+
+// enter key adds task
+const enterAddsTask = document.getElementById("Input");
+enterAddsTask.addEventListener("keydown", function(e){
+  if (e.key == "Enter" && planBtn.innerHTML == 'Plan For Today'){
+    newElement();
+  }
+})
