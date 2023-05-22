@@ -1,15 +1,23 @@
+:root{
+    --section-height: 60.3rem;
+    --section-width: 118.9rem;
+}
+
 *{
     margin:0;
+    /* border: 1px solid red; */
+}
+.heading-section,.biography-section,.achievement-section{
+    height: var(--section-height);
+    width: var(--section-width);
 }
 .heading-section{
     background-color: black;
-    height: 100vh;
-    width: 100vw;
 }
 .title{
     color:white;
 
-    height: 8rem;
+    height: 14rem;
     width: 50rem;
     text-align: center;
     font-size: 80px;
@@ -18,16 +26,72 @@
     top: 15rem;
     left: 18rem;
 }
+.title-span{
+    font-size: 50px;
+}
 .title-image-container{
     position: absolute;
     bottom: 0;
-    right:0;
+    right: 0;
 
-    height: 46rem;
-    width: 58rem;
 }
 .title-image{
-    height: 50rem;
+    height: 40rem;
     width: 60rem;
     object-fit: contain;
+}
+.biography-section{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url("images/lewisf1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.biography-image{
+    height: 40rem;
+    width: 60rem;
+    object-fit: contain;
+
+    position: relative;
+    top:9rem;
+    left: -9rem;
+
+    display: inline-block;
+
+}
+.biography-paragraph{
+    color:white;
+    width: 60rem;
+    height: 20rem;
+    font-size: 37px;
+    text-align: left;
+    position: relative;
+    left: 44rem;
+    bottom: 25rem;
+}
+.achievement-section{
+    background: url("images/lewisStats.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.wins,.laps{
+    height: 30rem;
+    width: 30rem;
+    font-size: 130px;
+    color: white;
+    display: inline-block;
+    font-weight: bolder;
+    text-align: center;
+
+    position: relative;
+}
+.wins{
+    height: 20rem;
+    left: 9rem;
+}
+.laps{
+    left: 45rem;
+    top: 10rem;
+    width: 40rem;
+}
+.wins-stat,.laps-stat{
+    font-size: 100px
 }
